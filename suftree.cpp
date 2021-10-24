@@ -46,7 +46,6 @@ void TSufTree::Extension(int position){
         if(!activeNode->children[str[activeEdge]]){
             activeNode->children[str[activeEdge]] = new TNode(position, &curEnd, true);
             RuleTwo(activeNode);
-            lastCreatedNode = activeNode;
         }
         else{
             TNode* nextNode = activeNode->children[str[activeEdge]];
@@ -75,7 +74,8 @@ void TSufTree::Extension(int position){
             if(activeLenght){
                 RuleOne();
             }
-        }else{
+        }
+        else{
             RuleThree();
         }
     }
@@ -95,7 +95,8 @@ void TSufTree::RuleOne(){
 void TSufTree::RuleThree(){
     if(activeNode->sufLink){
         activeNode = activeNode->sufLink;
-    }else{
+    }
+    else{
         activeNode = root;
     }
 }
